@@ -1,0 +1,35 @@
+{
+  "name": "proxy",
+  "version": 2,
+  "regions": [
+    "all"
+  ],
+  "public": true,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/robots.txt",
+      "status": 204
+    },
+    {
+      "src": "/favicon.ico",
+      "status": 204
+    },
+    {
+      "methods": [
+        "OPTIONS"
+      ],
+      "src": "/",
+      "status": 200
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/"
+    }
+  ]
+}
