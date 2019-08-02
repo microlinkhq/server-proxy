@@ -32,14 +32,14 @@ mql('https://microlink.io', {
 
 ## Environment Variables
 
-### MICROLINK_ORIGIN
+### DOMAINS
 
 *Required*</br>
 Type: `string`|`string[]`
 
-A whitelist of domains to trust.
+A whitelist of trusted domains.
 
-### MICROLINK_API_KEY
+### API_KEY
 
 *Required*</br>
 Type: `string`

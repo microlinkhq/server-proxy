@@ -1,28 +1,34 @@
 'use strict'
 
 const { send, sendError } = require('micro')
+const { getDomain } = require('tldts')
 const get = require('simple-get')
 
-const { MICROLINK_ORIGIN, MICROLINK_API_KEY } = process.env
+const { DOMAINS, API_KEY } = process.env
 
-if (!MICROLINK_ORIGIN) {
-  throw new Error("Environment variable `MICROLINK_ORIGIN` can't be empty")
+if (!DOMAINS) {
+  throw new Error("Environment variable `DOMAINS` can't be empty")
 }
 
-if (!MICROLINK_API_KEY) {
-  throw new Error("Environment variable `MICROLINK_API_KEY` can't be empty")
+if (!API_KEY) {
+  throw new Error("Environment variable `API_KEY` can't be empty")
 }
 
-const origin = MICROLINK_ORIGIN.split(',').map(n => n.trim())
+const CACHE = {}
+
+const trustedDomains = DOMAINS.split(',').map(n => n.trim())
+
+const isTrustedDomain = origin =>
+  CACHE[origin] || (CACHE[origin] = trustedDomains.includes(getDomain(origin)))
 
 module.exports = (req, res) => {
-  if (!origin.includes(req.headers.origin)) return send(res, 401)
+  if (!isTrustedDomain(req.headers.origin)) return send(res, 401)
 
   get(
     {
       url: `https://pro.microlink.io${req.url.substring(1)}`,
       headers: {
-        'x-api-key': MICROLINK_API_KEY
+        'x-api-key': API_KEY
       }
     },
     (error, stream) => (error ? sendError(req, res, error) : stream.pipe(res))
