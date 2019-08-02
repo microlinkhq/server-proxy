@@ -16,18 +16,14 @@ if (!MICROLINK_API_KEY) {
 const origin = MICROLINK_ORIGIN.split(',').map(n => n.trim())
 
 module.exports = (req, res) => {
-  try {
-    const isAllowed = origin.includes(req.headers.origin)
-    return isAllowed
-      ? req.pipe(
-        got.stream(`https://pro.microlink.io${req.url.substring(1)}`, {
-          headers: {
-            'x-api-key': MICROLINK_API_KEY
-          }
-        })
-      )
-      : send(res, 401)
-  } catch (err) {
-    console.log('ERROR!!!', error)
-  }
+  const isAllowed = origin.includes(req.headers.origin)
+  return isAllowed
+    ? req.pipe(
+      got.stream(`https://pro.microlink.io${req.url.substring(1)}`, {
+        headers: {
+          'x-api-key': MICROLINK_API_KEY
+        }
+      })
+    )
+    : send(res, 401)
 }
