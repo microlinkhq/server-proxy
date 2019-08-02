@@ -48,6 +48,7 @@
     "clean": "rm -rf node_modules",
     "dev": "NODE_ENV=development micro-dev",
     "lint": "standard-markdown README.md && standard",
+    "postrelease": "npm run release:tags && npm run release:github",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
