@@ -17,8 +17,8 @@
     "url": "https://github.com/microlinkhq/proxy/issues"
   },
   "dependencies": {
-    "got": "~9.6.0",
-    "micro": "~9.3.4"
+    "micro": "~9.3.4",
+    "simple-get": "~3.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
