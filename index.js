@@ -34,7 +34,9 @@ const isTrustedDomain = origin =>
   CACHE[origin] || (CACHE[origin] = trustedDomains.includes(getDomain(origin)))
 
 module.exports = (req, res) => {
-  if (!isTrustedDomain(req.headers.origin)) return send(res, 401)
+  const originHeader = req.headers['x-forwarded-host'] || req.headers.origin
+  if (!isTrustedDomain(originHeader)) return send(res, 401)
+
   res.setHeader('Access-Control-Allow-Origin', req.headers.origin)
 
   get(
@@ -46,7 +48,12 @@ module.exports = (req, res) => {
     },
     (error, stream) => {
       if (error) return sendError(req, res, error)
-      HEADERS.forEach(header => res.setHeader(header, stream.headers[header]))
+
+      HEADERS.forEach(header => {
+        const value = stream.headers[header]
+        if (value) res.setHeader(header, value)
+      })
+
       stream.pipe(res)
     }
   )
