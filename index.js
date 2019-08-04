@@ -33,8 +33,8 @@ const trustedDomains = DOMAINS.split(',').map(n => n.trim())
 const isTrustedDomain = origin =>
   CACHE[origin] || (CACHE[origin] = trustedDomains.includes(getDomain(origin)))
 
-const setHeader = (res, value, key) => {
-  if (value) res.setHeader(value, key)
+const setHeader = (res, key, value) => {
+  if (value) res.setHeader(key, value)
 }
 
 module.exports = (req, res) => {
