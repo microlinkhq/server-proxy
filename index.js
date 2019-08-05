@@ -38,7 +38,7 @@ const setHeader = (res, key, value) => {
 }
 
 module.exports = (req, res) => {
-  const originHeader = req.headers['x-forwarded-host'] || req.headers.origin
+  const originHeader = req.headers.origin || req.headers['x-forwarded-host']
   if (!isTrustedDomain(originHeader)) return send(res, 401)
 
   setHeader(res, 'Access-Control-Allow-Origin', originHeader)
