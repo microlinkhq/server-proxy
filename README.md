@@ -1,6 +1,6 @@
-<h1 align="center">
-  <img src="https://cdn.microlink.io/banner/proxy.png" alt="microlink proxy">
-</h1>
+<div align="center">
+  <img src="https://cdn.microlink.io/banner/proxy.png" alt="microlink">
+</div>
 
 [![Deploy to Now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/microlinkhq/proxy)
 
