@@ -2,6 +2,7 @@
   "name": "microlink-proxy",
   "description": "Interact with Microlink API without exposing your creedentials.",
   "repository": "https://github.com/microlinkhq/proxy",
+  "logo": "https://cdn.microlink.io/logo/logo.png",
   "keywords": [
     "microlink",
     "proxy",
