@@ -1,5 +1,5 @@
 {
-  "name": "proxy",
+  "name": "microlink-proxy",
   "version": 2,
   "regions": [
     "all"
@@ -11,6 +11,11 @@
       "use": "@now/node"
     }
   ],
+  "env": {
+    "NODE_ENV": "production",
+    "DOMAINS": "@microlink-domains",
+    "API_KEY": "@microlink-api-key"
+  },
   "routes": [
     {
       "src": "/robots.txt",
@@ -19,13 +24,6 @@
     {
       "src": "/favicon.ico",
       "status": 204
-    },
-    {
-      "methods": [
-        "OPTIONS"
-      ],
-      "src": "/",
-      "status": 200
     },
     {
       "src": "/(.*)",

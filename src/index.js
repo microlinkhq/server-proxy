@@ -1,17 +1,17 @@
 'use strict'
 
-const { send, sendError } = require('micro')
+const { send, sendError } = require('micri')
 const { getDomain } = require('tldts')
 const get = require('simple-get')
 
 const { DOMAINS, API_KEY } = process.env
 
 if (!DOMAINS) {
-  throw new Error("Environment variable `DOMAINS` can't be empty")
+  throw new Error("Environment variable `DOMAINS` can't be empty.")
 }
 
 if (!API_KEY) {
-  throw new Error("Environment variable `API_KEY` can't be empty")
+  throw new Error("Environment variable `API_KEY` can't be empty.")
 }
 
 const HEADERS = [

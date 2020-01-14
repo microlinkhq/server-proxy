@@ -2,7 +2,8 @@
   <img src="https://cdn.microlink.io/banner/proxy.png" alt="microlink">
 </div>
 
-[![Deploy to Now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/microlinkhq/proxy)
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/microlinkhq/proxy)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 > Interact with Microlink API without exposing your creedentials.
 
@@ -37,14 +38,14 @@ mql('https://microlink.io', {
 *Required*</br>
 Type: `string`|`string[]`
 
-A whitelist of trusted domains.
+A white list of allowed domains for consuming your Microlink API credentials.
 
 ### API_KEY
 
 *Required*</br>
 Type: `string`
 
-Your Microlink API key used for [authenticate](https://microlink.io/docs/api/api-basics/authentication) your requests.
+Your Microlink API key used to [authenticate](https://microlink.io/docs/api/api-basics/authentication) your requests.
 
 ## License
 

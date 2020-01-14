@@ -1,9 +1,9 @@
 {
   "name": "proxy",
-  "description": "Interact with Microlink API without exposing your creedentials",
+  "description": "Interact with Microlink API without exposing your creedentials.",
   "homepage": "https://github.com/microlinkhq/proxy",
   "version": "1.1.7",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
@@ -16,8 +16,14 @@
   "bugs": {
     "url": "https://github.com/microlinkhq/proxy/issues"
   },
+  "keywords": [
+    "credentials",
+    "microlink",
+    "proxy"
+  ],
   "dependencies": {
-    "micro": "~9.3.4",
+    "debug-logfmt": "~1.0.4",
+    "micri": "~2.0.1",
     "simple-get": "~3.1.0",
     "tldts": "~5.6.3"
   },
@@ -42,19 +48,20 @@
     "node": ">= 10"
   },
   "files": [
-    "index.js"
+    "src"
   ],
   "scripts": {
     "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
-    "dev": "NODE_ENV=development micro-dev",
+    "dev": "TZ=UTC NODE_ENV=development DEBUG=microlink-proxy* node src/server",
+    "heroku-prebuild": "npx untracked > .slugignore",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin HEAD:master",
-    "start": "TZ=UTC NODE_ENV=production micro",
+    "start": "TZ=UTC NODE_ENV=production DEBUG=microlink-proxy* node index.js",
     "test": "exit 0",
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
