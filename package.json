@@ -23,9 +23,9 @@
   ],
   "dependencies": {
     "debug-logfmt": "~1.0.4",
-    "micri": "~2.0.1",
+    "micri": "~4.0.0",
     "simple-get": "~3.1.0",
-    "tldts": "~5.6.3"
+    "tldts": "~5.6.18"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
