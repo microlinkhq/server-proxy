@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/microlinkhq/proxy/compare/v1.1.10...v2.0.0) (2020-04-02)
+
+
+### Features
+
+* rewrite implementation ([cecffdd](https://github.com/microlinkhq/proxy/commit/cecffddd860b93507c7c60714be508f4a7f8a491))
+
 ### [1.1.10](https://github.com/microlinkhq/proxy/compare/v1.1.9...v1.1.10) (2020-01-14)
 
 ### [1.1.9](https://github.com/microlinkhq/proxy/compare/v1.1.8...v1.1.9) (2020-01-14)
