@@ -22,9 +22,9 @@
     "proxy"
   ],
   "dependencies": {
+    "@microlink/mql": "~0.6.10",
     "debug-logfmt": "~1.0.4",
     "micri": "~4.0.0",
-    "simple-get": "~3.1.0",
     "tldts": "~5.6.18"
   },
   "devDependencies": {
@@ -80,16 +80,13 @@
   },
   "lint-staged": {
     "package.json": [
-      "finepack",
-      "git add"
+      "finepack"
     ],
     "*.js": [
-      "prettier-standard",
-      "git add"
+      "prettier-standard"
     ],
     "*.md": [
-      "standard-markdown",
-      "git add"
+      "standard-markdown"
     ]
   }
 }

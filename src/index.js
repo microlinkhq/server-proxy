@@ -1,59 +1,46 @@
 'use strict'
 
-const { send, sendError } = require('micri')
 const { getDomain } = require('tldts')
-const get = require('simple-get')
+const mql = require('@microlink/mql')
+const { promisify } = require('util')
+const { send } = require('micri')
+const stream = require('stream')
 
-const { DOMAINS, API_KEY } = process.env
+const pipeline = promisify(stream.pipeline)
 
-if (!DOMAINS) {
-  throw new Error("Environment variable `DOMAINS` can't be empty.")
+const REQUIRED_ENVS = ['DOMAINS', 'API_KEY']
+
+const CACHE = Object.create(null)
+
+const missing = REQUIRED_ENVS.filter(key => process.env[key] == null)
+
+if (missing.length > 0) {
+  throw new Error(`Missing required environment variable(s): ${missing.join(', ')}`)
 }
 
-if (!API_KEY) {
-  throw new Error("Environment variable `API_KEY` can't be empty.")
-}
-
-const HEADERS = [
-  'access-control-expose-headers',
-  'x-response-time',
-  'x-pricing-plan',
-  'x-cache-ttl',
-  'x-fetch-mode',
-  'x-cache-status',
-  'x-fetch-time',
-  'x-fetch-date',
-  'x-cache-expired-at'
-]
-
-const CACHE = {}
-
-const trustedDomains = DOMAINS.split(',').map(n => n.trim())
+const trustedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
 
 const isTrustedDomain = origin =>
   CACHE[origin] || (CACHE[origin] = trustedDomains.includes(getDomain(origin)))
 
-const setHeader = (res, key, value) => {
-  if (value) res.setHeader(key, value)
-}
-
-module.exports = (req, res) => {
+const verifyDomain = (req, res) => {
   const originHeader = req.headers.origin || req.headers['x-forwarded-host']
   if (!isTrustedDomain(originHeader)) return send(res, 401)
+  res.setHeader('Access-Control-Allow-Origin', originHeader)
+}
 
-  setHeader(res, 'Access-Control-Allow-Origin', originHeader)
+const toSearchParams = req => new URL(req.url, 'http://localhost').searchParams
 
-  get(
-    {
-      url: `https://pro.microlink.io${req.url.substring(1)}`,
-      headers: {
-        'x-api-key': API_KEY
-      }
-    },
-    (error, stream) => {
-      if (error) return sendError(req, res, error)
-      HEADERS.forEach(header => setHeader(res, header, stream.headers[header]))
-      stream.pipe(res)
+module.exports = (req, res) => {
+  verifyDomain(req, res)
+
+  const stream = mql.stream('https://pro.microlink.io', {
+    searchParams: toSearchParams(req),
+    headers: {
+      'x-api-key': process.env.API_KEY,
+      accept: req.headers.accept
     }
-  )
+  })
+
+  pipeline(stream, res)
 }
