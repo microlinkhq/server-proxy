@@ -1,5 +1,6 @@
 'use strict'
 
+const debug = require('debug-logfmt')('microlink-proxy')
 const { getDomain } = require('tldts')
 const mql = require('@microlink/mql')
 const { promisify } = require('util')
@@ -24,9 +25,11 @@ const isTrustedDomain = origin =>
   CACHE[origin] || (CACHE[origin] = trustedDomains.includes(getDomain(origin)))
 
 const verifyDomain = (req, res) => {
-  const originHeader = req.headers.origin || req.headers['x-forwarded-host']
-  if (!isTrustedDomain(originHeader)) return send(res, 401)
-  res.setHeader('Access-Control-Allow-Origin', originHeader)
+  const origin = req.headers.origin || req.headers['x-forwarded-host']
+  const isTrusted = isTrustedDomain(origin)
+  debug({ origin, isTrusted })
+  if (!isTrustedDomain(origin)) return send(res, 401)
+  res.setHeader('Access-Control-Allow-Origin', origin)
 }
 
 const toSearchParams = req => new URL(req.url, 'http://localhost').searchParams
