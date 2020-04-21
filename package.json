@@ -22,10 +22,10 @@
     "proxy"
   ],
   "dependencies": {
-    "@microlink/mql": "~0.6.10",
+    "@microlink/mql": "~0.6.12",
     "debug-logfmt": "~1.0.4",
-    "micri": "~4.0.0",
-    "tldts": "~5.6.18"
+    "micri": "~4.1.0",
+    "tldts": "~5.6.23"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
