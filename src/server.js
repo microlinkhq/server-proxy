@@ -3,7 +3,7 @@
 const debug = require('debug-logfmt')('microlink-proxy')
 const { default: micri } = require('micri')
 
-const fn = require('./')
+const fn = require('.')
 
 const port = process.env.PORT || process.env.port || 3000
 
