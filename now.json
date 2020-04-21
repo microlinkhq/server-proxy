@@ -11,9 +11,7 @@
   ],
   "env": {
     "NODE_ENV": "production",
-    "DEBUG": "microlink-proxy*",
-    "DOMAINS": "@microlink-domains",
-    "API_KEY": "@microlink-api-key"
+    "DEBUG": "microlink-proxy*"
   },
   "routes": [
     {
