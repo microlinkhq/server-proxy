@@ -25,6 +25,7 @@ const isTrustedDomain = origin =>
   CACHE[origin] || (CACHE[origin] = trustedDomains.includes(getDomain(origin)))
 
 const verifyDomain = (req, res) => {
+  debug('headers', req.headers)
   const origin = req.headers.origin || req.headers['x-forwarded-host']
   const isTrusted = isTrustedDomain(origin)
   debug({ origin, isTrusted })
