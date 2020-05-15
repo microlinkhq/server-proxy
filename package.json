@@ -25,7 +25,7 @@
     "@microlink/mql": "~0.6.12",
     "cors": "~2.8.5",
     "debug-logfmt": "~1.0.4",
-    "micri": "~4.1.0",
+    "micri": "~4.2.0",
     "tldts": "~5.6.23"
   },
   "devDependencies": {
