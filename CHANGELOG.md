@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.11](https://github.com/microlinkhq/proxy/compare/v2.0.10...v2.0.11) (2020-05-15)
+
 ### [2.0.10](https://github.com/microlinkhq/proxy/compare/v2.0.9...v2.0.10) (2020-04-25)
 
 ### [2.0.9](https://github.com/microlinkhq/proxy/compare/v2.0.8...v2.0.9) (2020-04-21)
