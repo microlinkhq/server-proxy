@@ -1,7 +1,5 @@
 'use strict'
 
-const debug = require('debug-logfmt')('microlink-proxy')
-const { getDomain } = require('tldts')
 const mql = require('@microlink/mql')
 const { promisify } = require('util')
 const createCors = require('cors')
