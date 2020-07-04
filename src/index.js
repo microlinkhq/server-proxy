@@ -32,12 +32,6 @@ const proxy = (req, res) => {
   pipeline(stream, res)
 }
 
-const cors = createCors({
-  origin: (origin, cb) => {
-    const isAllowedDomain = allowedDomains.includes(getDomain(origin))
-    debug({ origin, isAllowedDomain })
-    return cb(null, isAllowedDomain)
-  }
-})
+const cors = createCors({ origin: allowedDomains })
 
 module.exports = (req, res) => cors(req, res, () => proxy(req, res))
