@@ -38,7 +38,7 @@ mql('https://microlink.io', {
 *Required*</br>
 Type: `string`|`string[]`
 
-A white list of allowed domains for consuming your Microlink API credentials.
+The list of allowed domains authorized for for consuming your Microlink API credentials.
 
 ### API_KEY
 
