@@ -16,7 +16,7 @@ if (missing.length > 0) {
   throw new Error(`Missing required environment variable(s): ${missing.join(', ')}`)
 }
 
-const whitelistDomains = process.env.DOMAINS.split(',').map(n => n.trim())
+const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
 
 const toSearchParams = req => new URL(req.url, 'http://localhost').searchParams
 
@@ -34,9 +34,9 @@ const proxy = (req, res) => {
 
 const cors = createCors({
   origin: (origin, cb) => {
-    const isTrusted = whitelistDomains.includes(getDomain(origin))
-    debug({ origin, isTrusted })
-    return cb(null, isTrusted)
+    const isAllowedDomain = allowedDomains.includes(getDomain(origin))
+    debug({ origin, isAllowedDomain })
+    return cb(null, isAllowedDomain)
   }
 })
 

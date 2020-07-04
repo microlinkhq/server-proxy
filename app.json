@@ -10,7 +10,7 @@
   ],
   "env": {
     "DOMAINS": {
-      "description": "A white list of allowed domains for consuming your Microlink API credentials."
+      "description": "The list of allowed domains authorized for consuming your Microlink API credentials."
     },
     "API_KEY": {
       "description": "Your Microlink API key used to authenticate your requests."
