@@ -61,7 +61,7 @@
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
     "release:tags": "git push --follow-tags origin HEAD:master",
-    "start": "TZ=UTC NODE_ENV=production DEBUG=microlink-proxy* node index.js",
+    "start": "TZ=UTC NODE_ENV=production DEBUG=microlink-proxy* node src/server",
     "test": "exit 0",
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
