@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.19](https://github.com/microlinkhq/proxy/compare/v2.0.18...v2.0.19) (2021-03-22)
+
+
+### Bug Fixes
+
+* start script ([e6006c1](https://github.com/microlinkhq/proxy/commit/e6006c12486dc92b6a3e1f07840d772738a1763f))
+
 ### [2.0.18](https://github.com/microlinkhq/proxy/compare/v2.0.17...v2.0.18) (2020-07-20)
 
 ### [2.0.17](https://github.com/microlinkhq/proxy/compare/v2.0.16...v2.0.17) (2020-07-04)
