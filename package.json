@@ -34,10 +34,11 @@
     "finepack": "latest",
     "git-authors-cli": "latest",
     "git-dirty": "latest",
-    "husky": "latest",
+    "husky": "~5.2.0",
     "lint-staged": "latest",
     "micro-dev": "latest",
     "npm-check-updates": "latest",
+    "pinst": "~2.1.6",
     "prettier-standard": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
@@ -56,7 +57,10 @@
     "dev": "TZ=UTC NODE_ENV=development DEBUG=microlink-proxy* node src/server",
     "heroku-prebuild": "npx untracked > .slugignore",
     "lint": "standard-markdown README.md && standard",
+    "postinstall": "husky install",
+    "postpublish": "pinst --enable",
     "postrelease": "npm run release:tags && npm run release:github",
+    "prepublishOnly": "pinst --disable",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
@@ -71,12 +75,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "package.json": [
