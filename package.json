@@ -34,12 +34,12 @@
     "finepack": "latest",
     "git-authors-cli": "latest",
     "git-dirty": "latest",
-    "husky": "~5.2.0",
     "lint-staged": "latest",
     "micro-dev": "latest",
     "npm-check-updates": "latest",
     "pinst": "~2.1.6",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest",
@@ -80,11 +80,15 @@
     "package.json": [
       "finepack"
     ],
-    "*.js": [
+    "*.js,!*.min.js,": [
       "prettier-standard"
     ],
     "*.md": [
       "standard-markdown"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx lint-staged"
   }
 }
