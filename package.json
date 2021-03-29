@@ -34,7 +34,7 @@
     "finepack": "latest",
     "git-authors-cli": "latest",
     "git-dirty": "latest",
-    "husky": "~5.2.0",
+    "husky": "~6.0.0",
     "lint-staged": "latest",
     "micro-dev": "latest",
     "npm-check-updates": "latest",
