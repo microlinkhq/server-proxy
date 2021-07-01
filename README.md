@@ -48,6 +48,13 @@ Type: `string`
 
 Your Microlink API key used to [authenticate](https://microlink.io/docs/api/api-basics/authentication) your requests.
 
+### API_ENDPOINT
+
+Type: `string`</br>
+Default: `https://pro.microlink.io`
+
+The Microlink API endpoint used for sending the requests.
+
 ## License
 
 **microlink** © [Microlink](https://microlink.io), Released under the [MIT](https://github.com/microlinkhq/proxy/blob/master/LICENSE.md) License.<br>

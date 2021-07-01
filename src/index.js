@@ -14,15 +14,17 @@ if (missing.length > 0) {
   throw new Error(`Missing required environment variable(s): ${missing.join(', ')}`)
 }
 
-const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
+const { DOMAINS, API_KEY, API_ENDPOINT = 'https://pro.microlink.io' } = process.env
+
+const allowedDomains = DOMAINS.split(',').map(n => n.trim())
 
 const toSearchParams = req => new URL(req.url, 'http://localhost').searchParams
 
 const proxy = (req, res) => {
-  const stream = mql.stream('https://pro.microlink.io', {
+  const stream = mql.stream(API_ENDPOINT, {
     searchParams: toSearchParams(req),
     headers: {
-      'x-api-key': process.env.API_KEY,
+      'x-api-key': API_KEY,
       accept: req.headers.accept
     }
   })
