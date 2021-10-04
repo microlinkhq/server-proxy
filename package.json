@@ -22,7 +22,7 @@
     "proxy"
   ],
   "dependencies": {
-    "@microlink/mql": "~0.9.3",
+    "@microlink/mql": "~0.10.0",
     "cors": "~2.8.5",
     "debug-logfmt": "~1.0.4",
     "micri": "~4.3.0"
