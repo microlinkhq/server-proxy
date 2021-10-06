@@ -41,6 +41,8 @@ Type: `string`|`string[]`
 
 The list of allowed domains authorized to consume your Microlink API credentials.
 
+Note domains should be provided in the [URL.origin](https://developer.mozilla.org/en-US/docs/Web/API/URL/origin) format.
+
 ### API_KEY
 
 *Required*</br>
