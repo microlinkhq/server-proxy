@@ -32,6 +32,11 @@ const proxy = (req, res) => {
   pipeline(stream, res)
 }
 
-const cors = createCors({ origin: allowedDomains })
+const cors = createCors({
+  allowedHeaders: '*',
+  maxAge: 86400,
+  methods: ['GET', 'OPTIONS'],
+  origin: allowedDomains
+})
 
 module.exports = (req, res) => cors(req, res, () => proxy(req, res))
