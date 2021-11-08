@@ -1,5 +1,5 @@
 {
-  "name": "proxy",
+  "name": "@microlink/proxy",
   "description": "Interact with Microlink API without exposing your creedentials.",
   "homepage": "https://github.com/microlinkhq/proxy",
   "version": "2.0.19",
@@ -17,6 +17,9 @@
     "url": "https://github.com/microlinkhq/proxy/issues"
   },
   "keywords": [
+    "authentication",
+    "authorization",
+    "cors",
     "credentials",
     "microlink",
     "proxy"
@@ -33,16 +36,13 @@
     "conventional-github-releaser": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
     "lint-staged": "latest",
-    "micro-dev": "latest",
     "npm-check-updates": "latest",
     "prettier-standard": "latest",
     "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
-    "standard-version": "latest",
-    "untracked": "latest"
+    "standard-version": "latest"
   },
   "engines": {
     "node": ">= 12"
@@ -53,10 +53,12 @@
   "scripts": {
     "build": "untracked > .nowignore",
     "clean": "rm -rf node_modules",
+    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "dev": "TZ=UTC NODE_ENV=development DEBUG=microlink-proxy* node src/server",
     "heroku-prebuild": "npx untracked > .slugignore",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
+    "prerelease": "npm run update:check && npm run contributors",
     "pretest": "npm run lint",
     "release": "standard-version -a",
     "release:github": "conventional-github-releaser -p angular",
@@ -66,6 +68,7 @@
     "update": "ncu -u",
     "update:check": "ncu -- --error-level 2"
   },
+  "private": true,
   "license": "MIT",
   "commitlint": {
     "extends": [
