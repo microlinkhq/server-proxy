@@ -8,6 +8,8 @@
 
 > Interact with Microlink API without exposing your creedentials.
 
+**NOTE**: [Edge Function](https://github.com/microlinkhq/edge-proxy) version is also available.
+
 ## Motivation
 
 Interacting directly with [Microlink API](https://microlink.io/docs/api/getting-started/overview) from frontend side is one of the most common scenarios.
