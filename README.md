@@ -6,7 +6,7 @@
 [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/new/project?template=https://github.com/microlinkhq/proxy)
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-> Interact with Microlink API without exposing your creedentials.
+> Interact with Microlink API without exposing your credentials.
 
 **NOTE**: [Edge Function](https://github.com/microlinkhq/edge-proxy) version is also available.
 
