@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/microlinkhq/proxy/compare/v2.0.27...v3.0.0) (2022-08-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* DOMAINS → ORIGINS
+
+### Features
+
+* rename DOMAINS into ORIGINS ([17922c7](https://github.com/microlinkhq/proxy/commit/17922c72411c74fd087119609fe5d15eab49a67d))
+
 ### 2.0.28 (2022-08-20)
 
 ### 2.0.27 (2022-08-20)
