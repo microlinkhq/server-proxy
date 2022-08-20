@@ -51,7 +51,7 @@
     "src"
   ],
   "scripts": {
-    "build": "untracked > .nowignore",
+    "build": "npx untracked > .vercelignore",
     "clean": "rm -rf node_modules",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "dev": "TZ=UTC NODE_ENV=development DEBUG=microlink-proxy* node src/server",
