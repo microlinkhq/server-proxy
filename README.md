@@ -36,14 +36,14 @@ mql('https://microlink.io', {
 
 ## Environment Variables
 
-### DOMAINS
+### ORIGINS
 
 *Required*</br>
 Type: `string`|`string[]`
 
-The list of allowed domains authorized to consume your Microlink API credentials.
+The list of authorized origins to consume your Microlink API credentials.
 
-Note domains should be provided in the [URL.origin](https://developer.mozilla.org/en-US/docs/Web/API/URL/origin) format (e.g., `'https://example.com'`).
+They should be provided in the [URL.origin](https://developer.mozilla.org/en-US/docs/Web/API/URL/origin) format (e.g., `'https://example.com'`).
 
 ### API_KEY
 
