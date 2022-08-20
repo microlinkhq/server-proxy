@@ -3,7 +3,7 @@
   <br><br>
 </div>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=https://github.com/microlinkhq/proxy)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmicrolinkhq%2Fproxy&env=API_KEY,ORIGINS)
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 > Interact with Microlink API without exposing your credentials.
