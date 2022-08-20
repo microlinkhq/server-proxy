@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 3.0.1 (2022-08-20)
+
 ## [3.0.0](https://github.com/microlinkhq/proxy/compare/v2.0.27...v3.0.0) (2022-08-20)
 
 

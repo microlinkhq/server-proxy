@@ -2,7 +2,7 @@
   "name": "@microlink/proxy",
   "description": "Interact with Microlink API without exposing your creedentials.",
   "homepage": "https://github.com/microlinkhq/proxy",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
