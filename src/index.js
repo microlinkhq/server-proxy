@@ -4,6 +4,7 @@ const mql = require('@microlink/mql')
 const { promisify } = require('util')
 const createCors = require('cors')
 const stream = require('stream')
+
 const pipeline = promisify(stream.pipeline)
 
 const REQUIRED_ENVS = ['DOMAINS', 'API_KEY']
@@ -18,7 +19,7 @@ const { DOMAINS, API_KEY, API_ENDPOINT = 'https://pro.microlink.io' } = process.
 
 const allowedDomains = DOMAINS.split(',').map(n => n.trim())
 
-const toSearchParams = req => new URL(req.url, 'http://localhost').searchParams
+const toSearchParams = req => new URL(req.url, 'http://[::]').searchParams
 
 const proxy = (req, res) => {
   const stream = mql.stream(API_ENDPOINT, {
