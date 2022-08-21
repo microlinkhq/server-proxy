@@ -17,7 +17,7 @@
     },
     {
       "src": "/favicon.ico",
-      "status": 204
+      "dest": "https://cdn.microlink.io/logo/trim.png"
     },
     {
       "src": "/(.*)",
