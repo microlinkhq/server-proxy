@@ -27,8 +27,7 @@
   "dependencies": {
     "@microlink/mql": "~0.10.4",
     "cors": "~2.8.5",
-    "debug-logfmt": "~1.0.4",
-    "micri": "~4.5.0"
+    "debug-logfmt": "~1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -53,7 +52,7 @@
   "scripts": {
     "build": "npx untracked > .vercelignore",
     "clean": "rm -rf node_modules",
-    "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
+    "contributors": "(npx git-authors-cli && npx finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
     "dev": "TZ=UTC NODE_ENV=development DEBUG=microlink-proxy* node src/server",
     "heroku-prebuild": "npx untracked > .slugignore",
     "lint": "standard-markdown README.md && standard",
